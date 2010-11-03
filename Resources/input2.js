@@ -4,18 +4,13 @@ Ti.include('first.js');
 Ti.include('webview.js');
 var win = Ti.UI.currentWindow;
 win.backgroundColor='#CCC';
-var inputView = Ti.UI.createTextField({width:300,height:75,top:15,backgroundColor:'white',borderColor:'#999',borderRadius:10});
-var input = Ti.UI.createTextArea({value:'{"sample":[{"one":"this is one"},{"two":"this is two"}]}',left:10,right:10,top:10,bottom:10,height:75,font:{fontSize:16},suppressReturn:true});
-var button = Ti.UI.createButton({top:100,width:100,height:40,title:'Parse Json'});
-var me = Ti.UI.createLabel({text:'follow me on twitter: @pecdev',top:150,width:'auto',height:'auto'});
+var inputView = Ti.UI.createTextField({width:320,height:200,top:0,backgroundColor:'white'});
+var input = Ti.UI.createTextArea({value:'{"sample":[{"one":"this is one"},{"two":"this is two"}]}',left:5,right:5,top:5,bottom:5,height:190,font:{fontSize:16},suppressReturn:false});
+var button = Ti.UI.createButton({title:'Parse Json'});
+win.rightNavButton=button;
 inputView.add(input);
 win.add(inputView);
-win.add(button);
-win.add(me);
 
 button.addEventListener('click',function(){
 	Ti.UI.currentTab.open(firstView(input.value,'text'));
-});
-me.addEventListener('click',function(){
-	Titanium.Platform.openURL('http://twitter.com/pecdev');
 });
